@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AddBookActivity"
+    android:padding="24dp" >
+
+    <EditText
+        android:layout_marginBottom="12dp"
+        android:id="@+id/titleInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        tools:ignore="titleInput"
+        android:hint="@string/title_hint"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/authorInput"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        tools:ignore="titleInput"
+        android:hint="@string/author_hint"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:hint="@string/update"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

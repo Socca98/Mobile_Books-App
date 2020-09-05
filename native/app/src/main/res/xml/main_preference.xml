@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/alerts">
+        <Preference
+            android:key="text"
+            android:title="@string/notification" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/general">
+        <SwitchPreferenceCompat
+            android:key="preference_key_theme"
+            android:title="@string/dark_theme"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>
