@@ -1,7 +1,3 @@
-## INDEX
- * [Details](#details)
- * [NN photos](#non-native-app-photos)
- 
 # Mobile_Books-App
 Managing a list of Books which can be synced with a Flask server.
 Same CRUD and sync functionality done in Android (Kotlin) and Flutter.
