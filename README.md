@@ -1,20 +1,17 @@
 # Mobile_Books-App
-Managing a list of Books which can be synced with a Flask server.
-Same CRUD and sync functionality done in Android (Kotlin) and Flutter.
-Android native app has additional functionalities.
+Managing a list of Books. Same CRUD+Local database done in Android (Kotlin) and Flutter. The Android app has additional functionalities.
 
 ## Functionalities
 Native Android app:
-* CRUD 
+* CRUD - store in local database using **Realm**
     * Edit, Delete only available with Internet Connection
 * Synchronize books with Flask server
 * settings/preference with Dark Theme
-* requests using RxJava
+* requests using **RxJava**
 * small animation (360 rotation on click)
 
 Non native Flutter app:
-* TBI (To be implemented) 
-
+* CRUD - store in Sqlite local database
 
 
 ## Native app photos
