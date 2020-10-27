@@ -17,7 +17,7 @@ class BookDetail extends StatefulWidget {
 
 class BookDetailState extends State<BookDetail> {
   DatabaseHelper databaseHelper = DatabaseHelper();
-  NetworkApi networkApi = NetworkApi();
+  // NetworkApi networkApi = NetworkApi();
 
   String appBarTitle;
   Book book;
@@ -94,10 +94,9 @@ class BookDetailState extends State<BookDetail> {
                             textScaleFactor: 1.5,
                           ),
                           onPressed: () {
-                            // setState(() {
-                            //   _save();
-                            // });
-                            _save();
+                            setState(() {
+                              _save();
+                            });
                           },
                         ),
                       ),
@@ -146,25 +145,14 @@ class BookDetailState extends State<BookDetail> {
   void _save() async {
     moveToLastScreen();
 
+    // book.date = DateFormat.yMMMd().format(DateTime.now());
     int result;
     if (book.id != null) {
       // Case 1: Update operation
       result = await databaseHelper.updateBook(book);
     } else {
       // Case 2: Insert Operation
-      print("Before: ${book.title} ${book.author}");
-      String newId = await generateId();
-
-      // Something went wrong >:(
-      if (newId == null)
-        throw Exception("Error! Id is null at adding.");
-
-      print("After: ${book.title} ${book.author}");
-      Book newBook = Book.withId(newId, book.title, book.author);
-
-      // Book r2 = await networkApi.createBook(book.id, book.title, book.author);
-
-      result = await databaseHelper.insertBook(newBook);
+      result = await databaseHelper.insertBook(book);
     }
 
     if (result != 0) {
@@ -184,14 +172,11 @@ class BookDetailState extends State<BookDetail> {
       return;
     }
 
-    String convertedId = book.id;
-    // int convertedId = int.parse(book.id);
-    // int convertedId = book.id;
-    int result = await databaseHelper.deleteBook(convertedId);
+    int result = await databaseHelper.deleteBook(book.id);
     if (result != 0) {
       _showAlertDialog('Status', 'Book Deleted Successfully');
     } else {
-      _showAlertDialog('Status', 'Error occurred while Deleting Book');
+      _showAlertDialog('Status', 'Error Occured while Deleting Book');
     }
   }
 
@@ -205,16 +190,16 @@ class BookDetailState extends State<BookDetail> {
 
   /// Check what ids exist and choose a free number.
   /// Waits for getBookList to return result then proceeds to the for loop
-  Future<String> generateId() async {
-    int id = 0;
-    List<Book> bookList = await databaseHelper.getBookList();
-    for (book in bookList) {
-      int k = int.parse(book.id);
-      // int k = book.id;
-      if(k != null && k > id) {
-        id = k;
-      }
-    }
-    return (id+1).toString();
-  }
+  // Future<String> generateId() async {
+  //   int id = 0;
+  //   List<Book> bookList = await databaseHelper.getBookList();
+  //   for (book in bookList) {
+  //     int k = int.parse(book.id);
+  //     // int k = book.id;
+  //     if(k != null && k > id) {
+  //       id = k;
+  //     }
+  //   }
+  //   return (id+1).toString();
+  // }
 }

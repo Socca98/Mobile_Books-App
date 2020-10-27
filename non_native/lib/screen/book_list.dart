@@ -94,11 +94,7 @@ class BookListState extends State<BookList> {
   }
 
   void _delete(BuildContext context, Book book) async {
-    // print("Delete: " + book.id);
-    String convertedId = book.id;
-    // int convertedId = int.parse(book.id);
-    // int convertedId = book.id;
-    int result = await databaseHelper.deleteBook(convertedId);
+    int result = await databaseHelper.deleteBook(book.id);
     if (result != 0) {
       _showSnackBar(context, 'Book Deleted Successfully');
       updateListView();

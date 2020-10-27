@@ -1,5 +1,5 @@
 class Book {
-  String _id;
+  int _id;
   String _title;
   String _author;
 
@@ -7,13 +7,13 @@ class Book {
 
   Book.withId(this._id, this._title, this._author);
 
-  String get id => _id;
+  int get id => _id;
 
   String get title => _title;
 
   String get author => _author;
 
-  set id(String value) {
+  set id(int value) {
     _id = value;
   }
 
@@ -44,7 +44,6 @@ class Book {
 
   // Extract a Book object from a Map object
   Book.fromMapObject(Map<String, dynamic> map) {
-    // this._id = map['id'].toString();
     this._id = map['id'];
     this._title = map['title'];
     this._author = map['author'];
