@@ -23,7 +23,10 @@ Non native Flutter app:
 </p>
 
 ## Non native app photos
-
+<p float="left">
+    <img src="https://i.imgur.com/eCSLtD1.png" width="250"> 
+    <img src="https://i.imgur.com/99QTKuX.png" width="250"> 
+</p>
 
 ## Details
 Implemented a REST CRUD app 
